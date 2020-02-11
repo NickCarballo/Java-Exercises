@@ -1,0 +1,12 @@
+    public static boolean isEven(int number) {
+        if(number > 0 && number % 2 == 0) {
+          return true; 
+        } else 
+            return false;
+        }
+//This is the same as saying
+    
+    
+    public static boolean isEven(int number) {
+        return number > 0 && number % 2 == 0;
+        }
