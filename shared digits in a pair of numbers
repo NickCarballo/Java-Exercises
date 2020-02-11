@@ -1,0 +1,40 @@
+//code is meant to check for shared digits in a pair of 2 digit numbers(10-99)
+package Directory.Update;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        //test a pair of numbers between 10-99 for shared digits
+        //input the number you would like to test
+        if (sharedDigit(12,72)){
+            System.out.println("you have a shared digit");
+        } else
+        System.out.println("no shared digit");
+    }
+
+    public static boolean sharedDigit(int x, int y) {
+
+
+        //while loop to obtain the number of decimal places
+
+            if (x/10 == y/10){
+                return true;
+            }
+                else if (x%10 == y/10){
+                    return true;
+                }
+                else if (x/10 == y%10){
+                    return true;
+                }
+                else if (x%10 == y%10){
+                return true;
+            }
+                else
+                    return false;
+
+            }
+
+
+
+    }
