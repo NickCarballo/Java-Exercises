@@ -1,0 +1,75 @@
+/*This next one is a little rough.
+A palindrome is a number that is the same when reversed. IE 808, 121, 6996, 420024
+This code breaks down how to disassemble an int value into digits and reassemble the value reversed.
+**/
+
+package Directory.Update;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+       //Calling one method in main to keep code clean
+       sup();
+    }
+
+
+    public static void sup() throws InputMismatchException {
+       //Create new scanner to except user input
+       Scanner input = new Scanner(System.in);
+        //create argument for while loop
+        boolean x = false;
+        //This loop will continue until the user says yes
+       
+       while (!x) {
+            System.out.println(" do you know what a Palindrome is? (yes/no)");
+            String ans = input.next();
+            if (!ans.equalsIgnoreCase("yes")) {
+                whatitis();
+            }
+            else
+            x = true;
+        }
+
+
+        //Ask for user input and save it as int number
+        System.out.println("Please enter a number");
+        int number = input.nextInt();
+        //pass number to speak method
+        speak(number);
+        }
+
+
+    //Method called by sup() method to inform the user of what a palindrome is.
+    public static void whatitis() {
+        System.out.println("Palindrome is a noun. It is a word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.");
+    }
+
+    public static boolean isPalindrome(int number) {
+        int x = number;
+        int reverse = 0;
+       //loop through length of number using while loop.
+       while (x != 0) {
+            //last digit is will be the remaining number
+            int lastDigit = x % 10;
+            // divide by ten to remove the last digit
+            x /= 10;
+            //the reverse number needs to move up one decimal place every time a new digit is added
+            reverse = reverse * 10 + lastDigit;
+        }
+        //return validity of number is = to reverse
+        return number == reverse;
+    }
+
+    public static void speak(int number) {
+        if (isPalindrome(number))
+            System.out.println("The number is a palindrome");
+
+        else
+            System.out.println("The number is not a palindrome");
+        sup();
+    }
+
+}
