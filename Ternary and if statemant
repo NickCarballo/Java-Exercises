@@ -1,0 +1,41 @@
+//Basic Ternery and If statements
+package academy.learnprogramming;
+
+public class Main {
+
+    public static void main(String[] args) {
+//        byte myByte = 1;
+//        int myInt = 2;
+//        short myShort = 3;
+//
+//        long sum = 50000L + 10L*(myByte + myShort+ myInt);
+//        System.out.println(sum);
+//    float myFloat = 6.9F;
+//    double myDouble = 5.1D;
+//
+//    float sum = (float)(myFloat + myDouble);
+//        System.out.println(type(sum));
+//
+//        double pounds = 5;
+//        double kilo = 0.45359237;
+//        double convert = pounds * kilo;
+//        System.out.println(convert);
+////        System.out.println(type(kilo));
+
+       double num1 = 20;
+       double num2 = 80;
+       double result = (num1 + num2);
+       result *= 100;
+       double mod = result% 40;
+       boolean even = mod==0 ? true : false;
+        System.out.println(even);
+       if(even) {
+           System.out.println("The result is even");
+       }
+       if(!even) {
+           System.out.println("The result is not even");
+           System.out.println("you have some remainder");
+       }
+        System.out.println("cool");
+    }
+}
