@@ -1,0 +1,27 @@
+package list;
+import java.io.*;
+import java.util.*;
+
+public class jake {
+    public static void main (String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.println("a, b, c or d?");
+        String x = input.next();
+        char y = x.charAt(0);
+
+        switch(y){
+            case 'a':
+                System.out.println("thats an A");
+                break;
+            case 'b':
+                System.out.println("thats a b");
+                break;
+            case 'c':
+                System.out.println("thats a C");
+                break;
+            default:
+                System.out.println("thats a D");
+                break;
+        }
+    }
+}
