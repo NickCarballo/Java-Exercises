@@ -1,0 +1,41 @@
+//I went back to clean up this code
+
+package Directory.Update;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        //input the number you would like to test
+        sumFl(123456789);
+    }
+
+    public static void sumFl(int number) {
+        int x = number;
+        int count = 0;
+        int firstDigit;
+        int lastDigit = x % 10;
+        //while loop to obtain the number of decimal places
+        while (x !=0) {
+
+            // divide by ten to move 1 decimal place
+            x /= 10;
+            //store number of decimal places in counter++
+            count++;
+            }
+        //every division by ten moves the decimal place over 1
+        //counter is = the total amount of decimal places 0.123
+        //we subtract 1 from counter to get us the first digit 1.23
+        //int value automatically removes decimal
+        firstDigit = number/(int)java.lang.Math.pow(10,count - 1);
+        int sum = firstDigit + lastDigit;
+
+        System.out.println("The original number is "+number);
+        System.out.println(firstDigit + " is the first digit");
+        System.out.println(lastDigit + " is the last digit");
+        System.out.println("the sum is " + sum );
+
+
+    }
+
+}
