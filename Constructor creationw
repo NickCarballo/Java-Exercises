@@ -1,0 +1,63 @@
+package Directory.Update;
+//Creating new class Wall
+public class Wall {
+    //Creating New Fields
+    private double height;
+    private double width;
+//Defualt Constructor
+    public Wall() {
+        this(12.0, 24.0);
+    }
+//Constructor
+    public Wall(double height, double width) {
+        this.height = height;
+        this.width = width;
+        //This will ensure that fields cannot be set to negative numbers
+        if (this.height < 0) {
+            this.height = 0;
+        }
+        
+        if (this.width < 0) {
+            this.width = 0;
+        }
+    }
+//Creating getters
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+
+        this.height = height;
+        if (this.height < 0) {
+            this.height = 0;
+        }
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    //Creating setters
+    public void setHeight(double height) {
+
+        this.height = height;
+    //Ensuring no negative values will be set
+        if (this.height  < 0)   
+            this.height = 0;
+        }
+    }
+
+    public void setWidth(double width) {
+
+        this.width = width;
+    //Ensuring no negative values will be set
+        if (this.width < 0) {
+            this.width = 0;
+        }
+    }
+    //Creating new method to obtain area of inputed or default values
+    public double getArea(){
+        return (getHeight() * getWidth());
+    }
+}
