@@ -1,0 +1,53 @@
+//This code is meant to add the first and last digit of an inputed number
+//number is static for simplicity
+//easy revision to allow for user input
+
+package Directory.Update;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        sumFl(123456789);
+    }
+
+
+
+    public static void sumFl(int number) {
+        int x = number;
+        int count = 0;
+        int firstDigit;
+        int lastDigit = x % 10;
+        //while loop to obtain the number of decimal places
+        while (x !=0) {
+
+            // divide by ten to move 1 decimal place
+            x /= 10;
+            //store number of decimal places in countercounter++
+            count++;
+            System.out.println("counting: "+ count);
+
+        }
+
+        //add for loop to obtain first digit
+        int var =1;
+        int i = 1;
+        //move to the first decimal place
+        while (i<count){
+            //moves up one decimal place every loop
+            var *= 10;
+            System.out.println("var = " + var);
+            i++;
+        }
+
+        firstDigit = number/var;
+        int sum = firstDigit + lastDigit;
+        System.out.println("The original number is "+number);
+        System.out.println(firstDigit + " is the first digit");
+        System.out.println(lastDigit + " is the last digit");
+        System.out.println("the sum is " + sum );
+
+
+    }
+
+}
