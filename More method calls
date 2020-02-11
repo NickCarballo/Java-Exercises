@@ -1,0 +1,29 @@
+package ex1;
+import java.util.Scanner;
+public class Main {
+
+    public static void main (String[] args) {
+
+        printConversion();//Call the method that prints the result
+    }
+    public static double toMilesPerHour(double kilometersPerHour) { //Method to convert kph->mph; x = rounded conversion
+        //if statement to ensure valid input
+        if(kilometersPerHour < 0){
+            return -1;
+        }
+        else {
+            double x = (kilometersPerHour/1.60934);//conversion formula
+            x = Math.round(x); //built in rounding method
+            return x;
+        }
+    }
+    public static void printConversion () {//method takes input and prints results
+        Scanner input = new Scanner(System.in); //input will accept user input duh
+        System.out.println("please enter the KPH you would like to convert");
+        double kph= input.nextDouble();//user input set to kph
+        double conversion = toMilesPerHour(kph);//call conversion method and store data into variable conversion
+        System.out.println("KM/H = " + kph  +" MI/H = " + conversion);// print results
+
+    }
+
+}
