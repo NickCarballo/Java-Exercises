@@ -1,0 +1,130 @@
+////////////////////MAIN///////////////////
+package Directory.Update;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        double cost = 0;
+        Floor floor = new Floor();
+        Carpet carpet = new Carpet(cost);
+        //New scanner
+        Scanner input = new Scanner(System.in);
+        //Prompt user for Floor width
+        System.out.println("What is the width of your floor");
+        floor.setWidth(input.nextDouble());
+        //Prompt user for Floor height
+        System.out.println("What is the length of your floor?");
+        floor.setLength(input.nextDouble());
+        System.out.println("Great! Your floor length is " + floor.getLength() + "Meters and your floor width is " + floor.getWidth() + "Meters!");
+        System.out.println("This is an area of " + floor.getArea() + "Meters!");
+        System.out.print("Which kind of carpet would you like?:\n"
+                + "1. Red carpet: $50.99 per meter\n"
+                + "2. Blue carpet: $33.99 per meter \n"
+                + "3. Green carpet: $100:00 per meter");
+        int x = input.nextInt();
+        if (x == 1) {
+            carpet.setCost(50.99);
+        } else if (x == 2) {
+            carpet.setCost(33.99);
+        } else if (x == 3) {
+            carpet.setCost(100.00);
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+
+///////////////////Carpet////////////////////////////////////
+package Directory.Update;
+
+public class Carpet {
+private double cost;
+
+//Constructor -------------
+public Carpet(double cost){
+    //If cost <0: Cost will be set to 0
+    this.cost = cost<0 ? 0:cost;
+}
+
+public void setCost(double cost){
+    this.cost = cost;
+}
+    public double getCost() {
+        return cost;
+    }
+}
+
+
+////////////////////Calculator//////////////////
+package Directory.Update;
+
+public class Calculator {
+    private Floor floor ;
+    private Carpet carpet;
+
+    public Calculator(Floor floor, Carpet carpet){
+        this.floor = floor;
+        this.carpet= carpet;
+
+    }
+    public double getTotalCost(){
+        return floor.getArea() * carpet.getCost();
+    }
+
+}
+
+
+
+
+//////////////////Floor//////////////////////////
+package Directory.Update;
+
+public class Floor {
+    private double length, width;
+
+    //default constructor
+    public Floor(){
+        this.length=10;
+        this.width=10;
+
+    }
+    //constructor - does not allow negative input
+    public Floor(double length, double width){
+        this.length = length <0 ? 0: length;
+        this.width = width <0 ? 0: length;
+    }
+    //Setter -width
+    public void setWidth(double width) {
+        this.width = width <0 ? 0: length;
+    }
+    //Setter - Length
+    public void setLength(double length) {
+        this.length = length <0 ? 0: length;
+    }
+    //Getter - Width
+    public double getWidth() {
+        return width;
+    }
+
+    //Getter - Length
+    public double getLength() {
+        return length;
+    }
+
+    //Method will get area of floor
+    public double getArea(){
+        return getLength()*getWidth();
+    }
+
+}
+
+
