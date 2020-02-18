@@ -1,0 +1,222 @@
+
+
+
+
+----------Vehicle class----------
+package inheritance;
+
+public class Vehicle {
+    private String color;
+    private String size;
+
+    public Vehicle(){
+        this.color="black";
+        this.size = "medium";
+    }
+    public Vehicle(String color, String size){
+        this.color =color;
+        this.size=size;
+}
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+}
+
+
+--------------Car class----------
+package inheritance;
+//Child of Vehicle class
+
+public class Car extends Vehicle {
+    private int wheels;
+    private int speed;
+    private String make;
+    private String model;
+    private String motor;
+    private int transmission;
+    private int gear = 1;
+    private boolean reverse = false;
+
+    public Car(String color, String size, int speed, int wheels, String make, String model, String motor, int transmission) {
+        super(color, size);
+        this.speed = speed;
+        this.wheels = wheels;
+        this.make = make;
+        this.model = model;
+        this.motor = motor;
+        this.transmission = transmission;
+
+    }
+
+    public void shiftUp() {
+        gear +=1;
+        reverse = false;
+        if (gear > getTransmission()) {
+            gear = getTransmission();
+            System.out.println("This transmission only has " + getTransmission() + "gears, you are already in the highest gear");
+        }
+        else
+            System.out.println("You are in gear "+ gear);
+    }
+
+
+    public void shiftDown() {
+        if (reverse) {
+            System.out.println("you are in reverse, shift up");
+        }else if(gear == 1) {
+            System.out.println("you are in 1st, shift up");
+        }
+
+            else {
+                gear-=1;
+            }
+
+    }
+
+    public void reverse (){
+        if (gear == 1){
+            System.out.println("you are now in reverse");
+            reverse = true;
+            gear = 0;
+        }
+        else{
+            System.out.println("You are in "+ gear + "gear");
+        System.out.println("You must be in 1st to get into reverse");
+    }}
+
+    public int getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(int transmission) {
+        this.transmission = transmission;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public void setWheels(int wheels) {
+        this.wheels = wheels;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getMotor() {
+        return motor;
+    }
+
+    public void setMotor(String motor) {
+        this.motor = motor;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getGear() {
+        return gear;
+    }
+
+    public void setGear(int gear) {
+        this.gear = gear;
+    }
+}
+------------Miata class----------
+//child of Car class
+package inheritance;
+
+public class Miata extends Car {
+
+    private String top;
+    private String gen;
+
+    public Miata(String color, String top, String gen, int transmission) {
+        super(color,"Small",100, 15,"Mazda","Miata","Bp4w",transmission);
+        this.top = top;
+        this.gen = gen;
+    }
+
+    public String getTop() {
+        return top;
+    }
+
+    public void setTop(String top) {
+        this.top = top;
+    }
+
+    public String getGen() {
+        return gen;
+    }
+
+    public void setGen(String gen) {
+        this.gen = gen;
+    }
+}
+----------------output-----------
+Do you have a Car?
+true //User input
+
+Is it a miata?!?!?
+true //User input
+
+What color is it?
+green //User input
+
+What kind of top does it have?
+soft //User input
+
+Which generation is it?
+NB1//User input
+
+How many gears does it have?
+5 //User input
+
+You are in gear 2
+You are in gear 3
+You are in gear 4
+You are in gear 5
+
+This transmission only has 5gears, you are already in the highest gear
+You are in 5gear
+You must be in 1st to get into reverse
+you are now in reverse
+you are in reverse, shift up
+You have a green,NB1 Miata with soft top and 0 speed transmission!
+
+That is one nice ride!
+goodbye
+
+
+Process finished with exit code 0
